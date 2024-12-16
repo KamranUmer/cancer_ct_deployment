@@ -87,7 +87,7 @@ class Ui:
             image = Image.open(uploaded_file)
             if image.mode == 'RGBA':  # Convert RGBA to RGB
                 image = image.convert('RGB')
-            st.sidebar.image(image, caption="Uploaded Image", use_column_width=True)
+            st.sidebar.image(image, caption="Uploaded Image")
             return image
         return None
 
@@ -96,7 +96,7 @@ class Ui:
         Display the prediction result and confidence in the sidebar.
         """
         st.sidebar.info(f"**Predicted Class:** {label}")
-        st.sidebar.info(f"**Confidence Level:** {confidence:.2f}%")
+        st.sidebar.info(f"**Accuracy :** {confidence:.2f}%")
         if confidence > 90:
             st.balloons()
 
@@ -105,7 +105,7 @@ class Ui:
         Display the prediction result directly on the main screen.
         """
         if image is not None:
-            st.image(image, caption=f"Prediction: {label} | Confidence: {confidence:.2f}%", use_column_width=True)
+            st.image(image, caption=f"Prediction: {label} | Accuracy : {confidence:.2f}%")
 
 
 # ------------------------------------------------------------------------------------
@@ -132,5 +132,5 @@ if __name__ == "__main__":
         ui.show_prediction_image(image, label, confidence)
 
     # Footer
-    st.sidebar.write("Powered by [Your Name]")
-    st.write("© 2024 Lung Cancer Classification Application")
+    st.sidebar.write("Powered by Tajdar")
+    st.write("Department of Computer Science")
