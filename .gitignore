@@ -1,1 +1,4 @@
 trained_lung_cancer_model.h5
+.env
+__pycache__/
+Lung_Cancer_Prediction.ipynb

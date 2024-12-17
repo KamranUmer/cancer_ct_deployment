@@ -4,6 +4,7 @@ from PIL import Image
 import tensorflow as tf
 import streamlit as st
 import matplotlib.pyplot as plt
+from chat_bot import chat
 
 
 # ------------------------------------------------------------------------------------
@@ -100,12 +101,15 @@ class Ui:
         if confidence > 90:
             st.balloons()
 
-    def show_prediction_image(self, image, label, confidence):
-        """
-        Display the prediction result directly on the main screen.
-        """
-        if image is not None:
-            st.image(image, caption=f"Prediction: {label} | Accuracy : {confidence:.2f}%")
+    def chat_bot_interface(self):
+        chat()
+
+    # def show_prediction_image(self, image, label, confidence):
+    #     """
+    #     Display the prediction result directly on the main screen.
+    #     """
+    #     if image is not None:
+    #         st.image(image, caption=f"Prediction: {label} | Accuracy : {confidence:.2f}%")
 
 
 # ------------------------------------------------------------------------------------
@@ -134,7 +138,7 @@ if __name__ == "__main__":
 
         # Display the results
         ui.show_result(result_label, confidence)
-        ui.show_prediction_image(image, result_label, confidence)
+        ui.chat_bot_interface()
 
     # Footer
     st.sidebar.write("Powered by Tajdar")
