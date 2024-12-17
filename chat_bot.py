@@ -1,15 +1,15 @@
 import os
-from dotenv import load_dotenv,find_dotenv
+# from dotenv import load_dotenv,find_dotenv
 import streamlit as st
 import google.generativeai as palm
 from langchain_google_genai import ChatGoogleGenerativeAI
-load_dotenv(find_dotenv())
+# load_dotenv(find_dotenv())
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 import os 
 from langchain_groq import ChatGroq
 
-load_dotenv()
+# load_dotenv()
 
 
 os.environ["GOOGLE_API_KEY"] = os.getenv("GROQ_API")
