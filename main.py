@@ -127,9 +127,14 @@ if __name__ == "__main__":
         processed_image = model_obj.preprocess_image(image)
         label, confidence = model_obj.predict(processed_image, CLASS_LABELS)
 
+        if label == 'Normal':
+            result_label = 'Affected'
+        else:
+            result_label = 'Normal'
+
         # Display the results
-        ui.show_result(label, confidence)
-        ui.show_prediction_image(image, label, confidence)
+        ui.show_result(result_label, confidence)
+        ui.show_prediction_image(image, result_label, confidence)
 
     # Footer
     st.sidebar.write("Powered by Tajdar")
